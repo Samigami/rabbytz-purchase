@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع الأنشطة والإيردروب</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c0e0c0; /* لون أخضر فاتح */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center; /* مركز أفقي */
+            align-items: center; /* مركز عمودي */
+            height: 100vh; /* يأخذ كل ارتفاع النافذة */
+        }
+        .container {
+            max-width: 600px;
+            width: 100%; /* يأخذ كل العرض المتاح */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* مركز العناصر أفقيًا */
+        }
+        .title {
+            background-color: #003366;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 10px;
+            width: 100%; /* يأخذ كل العرض من أجل تحسين المركز */
+        }
+        .content {
+            display: none;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            width: 100%; /* يأخذ كل العرض من أجل تحسين المركز */
+            text-align: center; /* مركز النص داخل المحتوى */
+        }
+        .active {
+            display: block;
+        }
+        .airdrop-message {
+            background-color: #ffcc00; /* لون أصفر فاتح للرسالة */
+            color: black;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .image-container {
+            margin-top: 10px;
+            width: 100%; /* يأخذ كل العرض */
+            height: 200px; /* ارتفاع ثابت للمربع */
+            display: flex;
+            justify-content: center; /* مركز الصورة أفقيًا */
+            align-items: center; /* مركز الصورة عموديًا */
+            background-color: #e0e0e0; /* لون خلفية للمربع */
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 5px; /* زوايا مدورة للصورة */
+        }
+        .activity-box {
+            display: flex; /* يقوم بمحاذاة العناصر بالداخل */
+            align-items: center; /* مركز عموديًا */
+            margin: 10px 0; /* إزاحة رأسية */
+            padding: 10px; /* حشوة داخلية */
+            background-color: #0055cc; /* لون الأنشطة */
+            color: white;
+            border-radius: 5px;
+            width: calc(100% - 20px); /* عرض محسوب */
+        }
+        .user-image {
+            width: 50px; /* عرض صورة المستخدم */
+            height: 50px; /* ارتفاع صورة المستخدم */
+            border-radius: 50%; /* صورة دائرية */
+            margin-left: 10px; /* مساحة بين الصورة والنص */
+        }
+        .waiting-box {
+            display: flex; /* يقوم بمحاذاة العناصر بالداخل */
+            align-items: center; /* مركز عموديًا */
+            margin: 10px 0; /* إزاحة رأسية */
+            padding: 10px; /* حشوة داخلية */
+            background-color: #0055cc; /* لون المستخدمين في الانتظار */
+            color: white;
+            border-radius: 5px;
+            width: calc(100% - 20px); /* عرض محسوب */
+            text-align: right; /* محاذاة النص إلى اليمين */
+        }
+        .waiting-status {
+            margin-left: auto; /* يقوم بمحاذاة إلى اليمين */
+            background-color: #ffcc00; /* لون أصفر لحالة الانتظار */
+            color: black; /* لون النص لحالة الانتظار */
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px; /* حجم خط صغير */
+        }
+        .waiting-container {
+            display: flex; /* يقوم بمحاذاة العناصر بالداخل */
+            justify-content: center; /* مركز أفقيًا */
+            align-items: center; /* مركز عموديًا */
+            width: 100%; /* يأخذ كل العرض المتاح */
+        }
+        .waiting-user-image {
+            width: 50px; /* عرض صورة المستخدم في الانتظار */
+            height: 50px; /* ارتفاع صورة المستخدم في الانتظار */
+            border-radius: 50%; /* صورة دائرية */
+            margin-left: 10px; /* مساحة بين الصورة والنص */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="title" onclick="showContent('activity-content')">
+            <h3>الأنشطة</h3>
+        </div>
+        <div id="activity-content" class="content">
+            <div class="image-container">
+                <img src="https://i.imgur.com/CQb92zN.jpeg" alt="نشاط">
+            </div>
+            <div class="activity-box">
+                <img class="user-image" src="https://i.imgur.com/BzGeLqV.jpeg" alt="pkxd.khaled">
+                <div>
+                    <p>pkxd.khaled</p>
+                    <p>البند: حزمة كورومي</p>
+                    <p>السعر: 4.99 $</p>
+                </div>
+            </div>
+            <div class="activity-box">
+                <img class="user-image" src="https://i.imgur.com/HRJx4CL.jpeg" alt="lonastar27">
+                <div>
+                    <p>lonastar27</p>
+                    <p>البند: زي جمالي للنساء</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="title" onclick="showContent('waiting-users-content')">
+            <h3>المستخدمون في الانتظار</h3>
+        </div>
+        <div id="waiting-users-content" class="content">
+            <div class="image-container">
+                <img src="https://i.imgur.com/1L1Qta5.jpeg" alt="pkxd.khaled" style="max-width: 100%; height: auto; margin-top: 10px;">
+            </div>
+            <div class="waiting-container">
+                <div class="waiting-box">
+                    <img class="waiting-user-image" src="https://i.imgur.com/BzGeLqV.jpeg" alt="pkxd.khaled">
+                    <div style="flex-grow: 1;">
+                        <p>pkxd.khaled</p>
+                    </div>
+                    <div class="waiting-status">في الانتظار</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="title" onclick="showContent('airdrop-content')">
+            <h3>إيردروب</h3>
+        </div>
+        <div id="airdrop-content" class="content">
+            <div class="image-container">
+                <img src="https://i.imgur.com/9V4DVqf.jpeg" alt="إيردروب">
+            </div>
+            <div class="airdrop-message">
+                <p>الإيردروب قادم قريبًا!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showContent(contentId) {
+            // إخفاء جميع أقسام المحتوى
+            var contents = document.querySelectorAll('.content');
+            contents.forEach(function(content) {
+                content.classList.remove('active');
+            });
+
+            // عرض القسم المحدد
+            var selectedContent = document.getElementById(contentId);
+            selectedContent.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
